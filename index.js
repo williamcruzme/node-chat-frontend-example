@@ -1,3 +1,5 @@
+'use strict';
+
 const morgan = require('morgan');
 const statusMonitor = require('express-status-monitor');
 const express = require('express');
