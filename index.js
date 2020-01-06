@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const statusMonitor = require('express-status-monitor');
 const express = require('express');
 
+// Initialize Express.js
 const app = express();
 
 app.use(morgan('dev'));
@@ -18,6 +19,7 @@ app.get('/', (_req, res) => {
   });
 });
 
+// Expose server
 app.listen(3000, () => {
   console.log('Listening on *:3000');
 });
