@@ -1,0 +1,25 @@
+redis:
+  image: redis
+  restart: always
+  ports:
+    - "6379"
+
+frontend:
+  image: gcr.io/node-chat-gke/frontend:latest
+  ports:
+    - "3001:3001"
+  links:
+    - websocket
+  volumes:
+   - ~/dev/node-chat/frontend:/usr/src/app
+  command: sh -c 'yarn; yarn global add nodemon; nodemon index.js'
+
+websocket:
+  image: gcr.io/node-chat-gke/websocket:latest
+  ports:
+    - "3002:3002"
+  links:
+    - redis
+  volumes:
+   - ~/dev/node-chat/websocket:/usr/src/app
+  command: sh -c 'yarn; yarn global add nodemon; nodemon index.js'
