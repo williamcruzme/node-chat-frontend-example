@@ -3,7 +3,6 @@ const statusMonitor = require('express-status-monitor');
 const express = require('express');
 
 const app = express();
-const port = process.env.PORT || 3001;
 
 app.use(morgan('dev'));
 app.use(statusMonitor());
@@ -12,13 +11,13 @@ app.set('view engine', 'pug');
 
 app.get('/', (_req, res) => {
   res.render('index', {
-    websocketHost: process.env.WEBSOCKET_HOST || 'ws://localhost:3002',
+    websocketHost: process.env.WEBSOCKET_HOST || 'ws://localhost:3001',
     websocketPath: process.env.WEBSOCKET_PATH || '/socket.io',
   });
 });
 
-app.listen(port, () => {
-  console.log('Listening on *:%s', port);
+app.listen(3000, () => {
+  console.log('Listening on *:3000');
 });
 
 module.exports = app;
