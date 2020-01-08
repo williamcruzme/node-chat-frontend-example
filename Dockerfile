@@ -12,4 +12,7 @@ COPY . /usr/src/app
 
 EXPOSE 3000
 
+ENV WEBSOCKET_HOST 35.223.42.50
+ENV WEBSOCKET_PATH chat
+
 CMD ["yarn", "start"]
