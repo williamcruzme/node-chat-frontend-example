@@ -14,8 +14,8 @@ app.set('view engine', 'pug');
 
 app.get('/', (_req, res) => {
   res.render('index', {
-    websocketHost: process.env.WEBSOCKET_HOST || 'ws://localhost:3001',
-    websocketPath: process.env.WEBSOCKET_PATH || '/socket.io',
+    websocketHost: 'ws://35.223.42.50',
+    websocketPath: '/chat',
   });
 });
 
