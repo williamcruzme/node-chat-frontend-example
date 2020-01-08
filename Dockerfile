@@ -10,6 +10,6 @@ COPY package.json /usr/src/app/package.json
 RUN yarn
 COPY . /usr/src/app
 
-EXPOSE 3001
+EXPOSE 3000
 
 CMD ["yarn", "start"]

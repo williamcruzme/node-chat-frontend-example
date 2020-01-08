@@ -7,7 +7,7 @@ redis:
 frontend:
   image: gcr.io/node-chat-gke/frontend:latest
   ports:
-    - "3001:3001"
+    - "3000:3000"
   links:
     - websocket
   volumes:
@@ -17,7 +17,7 @@ frontend:
 websocket:
   image: gcr.io/node-chat-gke/websocket:latest
   ports:
-    - "3002:3002"
+    - "3001:3001"
   links:
     - redis
   volumes:
